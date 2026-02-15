@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - eldora.ge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .logo p {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .file-upload {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9ff;
+        }
+
+        .file-upload-label:hover {
+            background: #eef1ff;
+            border-color: #764ba2;
+        }
+
+        .file-upload-label svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            fill: #667eea;
+        }
+
+        .file-upload-text {
+            text-align: left;
+        }
+
+        .file-upload-text strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .file-upload-text small {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            color: #2e7d32;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            color: #856404;
+        }
+
+        .instructions li {
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .required {
+            color: #e53935;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            .logo h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>eldora.ge</h1>
+            <p>Formulaire d'inscription</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instructions importantes :</h3>
+            <ul>
+                <li><strong>Photo 1 :</strong> Votre photo avec votre carte d'identité visible</li>
+                <li><strong>Photo 2 :</strong> Votre carte d'identité avec un papier portant "eldora.ge"</li>
+                <li>Les photos doivent être claires et lisibles</li>
+                <li>Format accepté : JPG, PNG (max 10 MB)</li>
+            </ul>
+        </div>
+
+        <form action="https://formsubmit.co/pro@eldora.ge" method="POST" enctype="multipart/form-data">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="Nouvelle inscription - eldora.ge">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="form-group">
+                <label for="prenom">Prénom <span class="required">*</span></label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="deuxieme_prenom">Deuxième prénom</label>
+                <input type="text" id="deuxieme_prenom" name="deuxieme_prenom">
+            </div>
+
+            <div class="form-group">
+                <label for="nom_famille">Nom de famille <span class="required">*</span></label>
+                <input type="text" id="nom_famille" name="nom_famille" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date_naissance">Date de naissance <span class="required">*</span></label>
+                <input type="date" id="date_naissance" name="date_naissance" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nationalite">Nationalité <span class="required">*</span></label>
+                <input type="text" id="nationalite" name="nationalite" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone <span class="required">*</span></label>
+                <input type="tel" id="telephone" name="telephone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adresse">Adresse postale <span class="required">*</span></label>
+                <input type="text" id="adresse" name="adresse_postale" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ville">Ville <span class="required">*</span></label>
+                <input type="text" id="ville" name="ville" required>
+            </div>
+
+            <div class="form-group">
+                <label for="code_postal">Code postal <span class="required">*</span></label>
+                <input type="text" id="code_postal" name="code_postal" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pays">Pays <span class="required">*</span></label>
+                <input type="text" id="pays" name="pays" required>
+            </div>
+
+            <div class="form-group">
+                <label>Photo avec carte d'identité <span class="required">*</span></label>
+                <div class="file-upload">
+                    <input type="file" id="photo1" name="photo_avec_id" accept="image/*" required>
+                    <label for="photo1" class="file-upload-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                        </svg>
+                        <div class="file-upload-text">
+                            <strong>Cliquez pour télécharger</strong>
+                            <small>Vous avec votre carte d'identité</small>
+                        </div>
+                    </label>
+                    <div class="file-name" id="filename1"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Carte d'identité + papier "eldora.ge" <span class="required">*</span></label>
+                <div class="file-upload">
+                    <input type="file" id="photo2" name="photo_id_papier" accept="image/*" required>
+                    <label for="photo2" class="file-upload-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                        </svg>
+                        <div class="file-upload-text">
+                            <strong>Cliquez pour télécharger</strong>
+                            <small>Carte d'identité + papier "eldora.ge"</small>
+                        </div>
+                    </label>
+                    <div class="file-name" id="filename2"></div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">📤 Envoyer l'inscription</button>
+        </form>
+    </div>
+
+    <script>
+        // Afficher le nom du fichier sélectionné pour photo 1
+        document.getElementById('photo1').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name;
+            const fileNameDiv = document.getElementById('filename1');
+            if (fileName) {
+                fileNameDiv.textContent = '✓ Fichier sélectionné : ' + fileName;
+                fileNameDiv.style.display = 'block';
+            }
+        });
+
+        // Afficher le nom du fichier sélectionné pour photo 2
+        document.getElementById('photo2').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name;
+            const fileNameDiv = document.getElementById('filename2');
+            if (fileName) {
+                fileNameDiv.textContent = '✓ Fichier sélectionné : ' + fileName;
+                fileNameDiv.style.display = 'block';
+            }
+        });
+
+        // Validation avant soumission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const photo1 = document.getElementById('photo1').files[0];
+            const photo2 = document.getElementById('photo2').files[0];
+
+            if (!photo1 || !photo2) {
+                e.preventDefault();
+                alert('Veuillez télécharger les deux photos requises.');
+                return false;
+            }
+
+            // Vérifier la taille des fichiers (10 MB max)
+            const maxSize = 10 * 1024 * 1024; // 10 MB
+            if (photo1.size > maxSize || photo2.size > maxSize) {
+                e.preventDefault();
+                alert('Les fichiers ne doivent pas dépasser 10 MB.');
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
